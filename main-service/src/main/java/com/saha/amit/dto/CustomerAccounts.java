@@ -13,6 +13,7 @@ public class CustomerAccounts {
 
     private String customerNumber;
     @Id
+    //@Column(name = "account_number")
     private String accountNumber;
     @Column(name="account_type")
     private String accountType;

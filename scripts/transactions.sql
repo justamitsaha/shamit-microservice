@@ -9,5 +9,42 @@ CREATE TABLE `transactions` (
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `account_number` (`account_number`),
-  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `customer_accounts` (`customer_number`)
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`account_number`) REFERENCES `customer_accounts` (`account_number`)
 )
+
+INSERT INTO Transactions (transaction_id, account_number, transaction_date, amount, debit_credit, description)
+VALUES
+    ('a42d0b0d-cc8d-45a1transaction_id-9c47-9c44e5a1947a', 'ACCT00000001', '2023-10-17', 100.00, 'Debit', 'Purchase at Store A'),
+    ('7be67254-43db-41ac-80a4-dc22e5b1f9c1', 'ACCT00000001', '2023-10-16', 250.50, 'Credit', 'Salary Deposit'),
+    ('b9d9e1b6-575c-4d11-8971-5823b93267e2', 'ACCT00000001', '2023-10-15', 30.25, 'Debit', 'Online Shopping'),
+    ('e2f0e1a8-1e2b-4d5f-aa8d-0c78c1c963d7', 'ACCT00000001', '2023-10-14', 75.00, 'Credit', 'Refund'),
+    ('f2b1d3e5-6c59-4b61-aa9c-1c5b6b2e29db', 'ACCT00000001', '2023-10-13', 45.75, 'Debit', 'Grocery Shopping'),
+    ('b8a3e2b1-4c61-9c2a-0b6b1e5d9bf3', 'ACCT00000001', '2023-10-12', 120.00, 'Credit', 'Investment Deposit'),
+    ('d3b5a8c1-49d9-4a4d-0a8d-1e1b2b5c2c3b', 'ACCT00000001', '2023-10-11', 20.50, 'Debit', 'Restaurant Bill'),
+    ('c1c7c2b6-9a29-4a0d-8d7a-3e5b6d3b2a4a', 'ACCT00000001', '2023-10-10', 55.25, 'Credit', 'Cash Deposit'),
+    ('5c6b6d4b1-7a8b-4b1d-8a2a-2a2d4b2e9a5c', 'ACCT00000001', '2023-10-09', 75.75, 'Debit', 'Online Shopping'),
+    ('9b2a0b6c2-d3d9-4d1e-8a7d-2e5b6c5b2b2a', 'ACCT00000001', '2023-10-08', 150.00, 'Credit', 'Refund'),
+    ('2d2a3c5b6-4c2b-4b6d-5d4f-2d2a4c5f9a3c', 'ACCT00000001', '2023-10-07', 40.25, 'Debit', 'Grocery Shopping'),
+    ('6b8a3b5a2-4a4c-4b1d-8c7a-5e5b6d2b9c8a', 'ACCT00000001', '2023-10-06', 110.00, 'Credit', 'Investment Deposit'),
+    ('4d5b5a8c1-4c9d-4a4d-5a1a-9c2b1e5d9b3f', 'ACCT00000001', '2023-10-05', 15.50, 'Debit', 'Restaurant Bill'),
+    ('8c1c2c7b6-9c2a-4a0d-8d7a-3e5b6d3b2a4a', 'ACCT00000001', '2023-10-04', 62.75, 'Credit', 'Cash Deposit'),
+    ('1c5c6b6d4b1-7a8b-4b1d-8a2a-2a2d4b2e9a5c', 'ACCT00000001', '2023-10-03', 80.25, 'Debit', 'Online Shopping'),
+    ('2d9b2a0b6c2-d3d9-4d1e-8a7d-2e5b6c5b2b2a', 'ACCT00000001', '2023-10-02', 125.00, 'Credit', 'Refund'),
+    ('4c2b2d2a3c5b6-4c2b-4b6d-5d4f-2d2a4c5f9a3c', 'ACCT00000001', '2023-10-01', 35.75, 'Debit', 'Grocery Shopping'),
+    ('6d4b1c7c2b6-9a29-4a0d-8d7a-3e5b6d3b2a4a', 'ACCT00000001', '2023-09-30', 90.00, 'Credit', 'Investment Deposit'),
+    ('1a4a3b5a8c1-4c9d-4a4d-5a1a-9c2b1e5d9b3f', 'ACCT00000001', '2023-09-29', 25.50, 'Debit', 'Restaurant Bill'),
+    ('8b9a2a0b6c2-d3d9-4d1e-8a7d-2e5b6c5b2b2a', 'ACCT00000001', '2023-09-28', 70.25, 'Credit', 'Cash Deposit'),
+    ('2a2d5c6b6d4b1-7a8b-4b1d-8a2a-2a2d4b2e9a5c', 'ACCT00000001', '2023-09-27', 105.00, 'Debit', 'Online Shopping'),
+    ('4d3b5b5a8c1-4c9d-4a4d-5a1a-9c2b1e5d9b3f', 'ACCT00000001', '2023-09-26', 10.25, 'Credit', 'Refund'),
+    ('7d8c1c2c7b6-9c2a-4a0d-8d7a-3e5b6d3b2a4a', 'ACCT00000001', '2023-09-25', 50.75, 'Debit', 'Grocery Shopping'),
+    ('5c2d9b2a0b6c2-d3d9-4d1e-8a7d-2e5b6c5b2b2a', 'ACCT00000001', '2023-09-24', 95.00, 'Credit', 'Investment Deposit'),
+    ('3d4c2b2d2a3c5b6-4c2b-4b6d-5d4f-2d2a4c5f9a3c', 'ACCT00000001', '2023-09-23', 38.50, 'Debit', 'Restaurant Bill'),
+    ('6b6d4b1c7c2b6-9a29-4a0d-8d7a-3e5b6d3b2a4a', 'ACCT00000001', '2023-09-22', 85.25, 'Credit', 'Cash Deposit'),
+    ('5d4f2d2a2d4a3b5a8c1-4c9d-4a4d-5a1a-9c2b1e5d9b3f', 'ACCT00000001', '2023-09-21', 42.75, 'Debit', 'Online Shopping'),
+    ('1e1b2b5c2c3b', 'ACCT00000001', '2023-09-20', 70.00, 'Credit', 'Refund'),
+    ('2b2d2a4c5f9a3c', 'ACCT00000001', '2023-09-19', 18.25, 'Debit', 'Grocery Shopping'),
+    ('9c2a0b6c2-d3d9-4d1e-8a7d-2e5b6c5b2b2a', 'ACCT00000001', '2023-09-18', 115.00, 'Credit', 'Investment Deposit'),
+    ('2e5b6d3b2a4a', 'ACCT00000001', '2023-09-17', 32.50, 'Debit', 'Restaurant Bill'),
+    ('8a2a2d4b2e9a5c', 'ACCT00000001', '2023-09-16', 65.75, 'Credit', 'Cash Deposit'),
+    ('4a4c4b1d8c7a3e5b6d4b1-7a8b-4b1d-8a2a-2a2d4b2e9a5c', 'ACCT00000001', '2023-09-15', 25.00, 'Debit', 'Online Shopping'),
+    ('5a1a9c2b1e5d9b3f', 'ACCT00000001', '2023-09-14', 55.25, 'Credit', 'Refund');
