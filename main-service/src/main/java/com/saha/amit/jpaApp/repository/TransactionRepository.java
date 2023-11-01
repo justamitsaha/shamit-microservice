@@ -1,6 +1,6 @@
-package com.saha.amit.repository;
+package com.saha.amit.jpaApp.repository;
 
-import com.saha.amit.dto.Transactions;
+import com.saha.amit.jpaApp.dto.Transactions;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

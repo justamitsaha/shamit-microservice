@@ -1,4 +1,4 @@
-package com.saha.amit.controller;
+package com.saha.amit.configApp.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;

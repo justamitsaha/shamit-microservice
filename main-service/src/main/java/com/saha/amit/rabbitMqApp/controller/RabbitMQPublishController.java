@@ -1,8 +1,9 @@
-package com.saha.amit.controller;
+package com.saha.amit.rabbitMqApp.controller;
 
-import com.saha.amit.config.RabbitMQConfig;
-import com.saha.amit.dto.Order;
-import com.saha.amit.dto.OrderStatus;
+
+import com.saha.amit.rabbitMqApp.dto.Order;
+import com.saha.amit.rabbitMqApp.dto.OrderStatus;
+import com.saha.amit.rabbitMqApp.config.RabbitMQConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

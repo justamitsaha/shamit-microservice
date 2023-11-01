@@ -1,9 +1,9 @@
-package com.saha.amit.service;
+package com.saha.amit.jpaApp.service;
 
-import com.saha.amit.dto.CustomerAccounts;
-import com.saha.amit.dto.Transactions;
-import com.saha.amit.repository.CustomerAccountsRepository;
-import com.saha.amit.repository.TransactionRepository;
+import com.saha.amit.jpaApp.dto.CustomerAccounts;
+import com.saha.amit.jpaApp.dto.Transactions;
+import com.saha.amit.jpaApp.repository.CustomerAccountsRepository;
+import com.saha.amit.jpaApp.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

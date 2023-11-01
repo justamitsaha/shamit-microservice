@@ -1,4 +1,4 @@
-package com.saha.amit.dto;
+package com.saha.amit.rabbitMqApp.dto;
 
 public class OrderStatus {
     private Order order;

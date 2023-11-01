@@ -1,8 +1,5 @@
-package com.saha.amit.consumer;
+package com.saha.amit.rabbitMqApp.consumer;
 
-import com.saha.amit.config.RabbitMQConfig;
-import com.saha.amit.dto.OrderStatus;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component

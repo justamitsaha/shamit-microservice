@@ -1,4 +1,4 @@
-package com.saha.amit.dto;
+package com.saha.amit.getPostApp.dto;
 
 
 import java.util.Date;

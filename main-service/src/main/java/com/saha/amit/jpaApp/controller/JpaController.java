@@ -1,9 +1,9 @@
-package com.saha.amit.controller;
+package com.saha.amit.jpaApp.controller;
 
 
-import com.saha.amit.dto.CustomerAccounts;
-import com.saha.amit.dto.Transactions;
-import com.saha.amit.service.JPAService;
+import com.saha.amit.jpaApp.dto.CustomerAccounts;
+import com.saha.amit.jpaApp.dto.Transactions;
+import com.saha.amit.jpaApp.service.JPAService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

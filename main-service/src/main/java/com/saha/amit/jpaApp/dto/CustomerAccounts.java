@@ -1,4 +1,4 @@
-package com.saha.amit.dto;
+package com.saha.amit.jpaApp.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

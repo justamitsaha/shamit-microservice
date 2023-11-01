@@ -1,4 +1,4 @@
-package com.saha.amit.config;
+package com.saha.amit.rabbitMqApp.config;
 
 import com.rabbitmq.client.AMQP;
 

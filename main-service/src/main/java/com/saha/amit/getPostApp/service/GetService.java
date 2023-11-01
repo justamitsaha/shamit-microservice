@@ -1,6 +1,6 @@
-package com.saha.amit.service;
+package com.saha.amit.getPostApp.service;
 
-import com.saha.amit.dto.Response;
+import com.saha.amit.getPostApp.dto.Response;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

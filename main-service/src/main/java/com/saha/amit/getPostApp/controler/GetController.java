@@ -1,7 +1,7 @@
-package com.saha.amit.controller;
+package com.saha.amit.getPostApp.controler;
 
-import com.saha.amit.dto.Response;
-import com.saha.amit.service.GetService;
+import com.saha.amit.getPostApp.dto.Response;
+import com.saha.amit.getPostApp.service.GetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
