@@ -26,9 +26,19 @@ public class JpaController {
         return jpaService.getAllAccounts();
     }
 
-    @GetMapping("findByAccountNumber/{accountNumber}")
-    public ResponseEntity<List<Transactions>> getAccountTransactions(@PathVariable String accountNumber) {
-        return ResponseEntity.status(HttpStatus.FOUND).body(jpaService.findByAccountNumber(accountNumber));
+    @GetMapping("findCustomerAccountsByCustomerNumber/{customerNumber}")
+    public Iterable<CustomerAccounts> findCustomerAccountsByCustomerNumber(@PathVariable String customerNumber) {
+        return jpaService.findCustomerAccountsByCustomerNumber(customerNumber);
+    }
+
+    @GetMapping("findCustomerAccountsByAccountNumber/{accountNumber}")
+    public Iterable<CustomerAccounts> findCustomerAccountsByAccountNumber(@PathVariable String accountNumber) {
+        return jpaService.findCustomerAccountsByAccountNumber(accountNumber);
+    }
+
+    @GetMapping("findTransactionByAccountNumber/{accountNumber}")
+    public ResponseEntity<List<Transactions>> findTransactionByAccountNumber(@PathVariable String accountNumber) {
+        return ResponseEntity.status(HttpStatus.FOUND).body(jpaService.findTransactionByAccountNumber(accountNumber));
     }
 
     @GetMapping("findTransactionsByTransactionID/{transactionID}")

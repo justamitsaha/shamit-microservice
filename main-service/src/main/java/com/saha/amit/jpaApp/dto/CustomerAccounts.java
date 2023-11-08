@@ -11,6 +11,7 @@ public class CustomerAccounts {
 
 
 
+    //@Column(name = "customer_number")
     private String customerNumber;
     @Id
     //@Column(name = "account_number")

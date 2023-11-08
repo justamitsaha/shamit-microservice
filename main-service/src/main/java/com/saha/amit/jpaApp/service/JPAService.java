@@ -22,7 +22,17 @@ public class JPAService {
         return customerAccountsRepository.findAll();
     }
 
-    public List<Transactions> findByAccountNumber(String accountNumber) {
+    public Iterable<CustomerAccounts> findCustomerAccountsByCustomerNumber(String customerNumber) {
+        return customerAccountsRepository.findCustomerAccountsByCustomerNumber(customerNumber);
+    }
+
+    public Iterable<CustomerAccounts> findCustomerAccountsByAccountNumber(String accountNumber) {
+        return customerAccountsRepository.findCustomerAccountsByAccountNumber(accountNumber);
+    }
+
+
+
+    public List<Transactions> findTransactionByAccountNumber(String accountNumber) {
         return transactionRepository.findByAccountNumber(accountNumber);
     }
 
