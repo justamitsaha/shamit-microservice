@@ -18,8 +18,20 @@ import java.util.List;
 @RequestMapping("/jpa")
 public class JpaController {
 
+    static int i = 0;
     @Autowired
     JPAService jpaService;
+
+    JpaController() {
+        i++;
+        System.out.println(i);
+    }
+
+    public JpaController(JPAService jpaService) {
+        this.jpaService = jpaService;
+        i++;
+        System.out.println(i);
+    }
 
     @GetMapping("getAllAccounts")
     public Iterable<CustomerAccounts> getAllAccounts() {

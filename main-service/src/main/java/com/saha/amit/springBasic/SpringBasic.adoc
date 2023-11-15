@@ -1,0 +1,114 @@
+== Component
+#*@Component*# --> makes declares a Spring bean. Which is just a java class managed by Spring.
+
+Spring will scan Java classes for special annotation like @Component etc. and automatically register the beans in the Spring container
+
+#*@SpringBootApplication*#-->   enables Auto configuration, Component scanning and Additional configuration
+
+
+#**@EnableAutoConfiguration **#   Enables Spring Boot's auto-configuration support
+
+#**@ComponentScan  **#            Enables component scanning of current package Also recursively scans sub-packages
+
+#**@Configuration **#             Able to register extra beans with @Bean or import other configuration classes
+
+By default, Spring Boot starts component scanning. From same package as your main Spring Boot application. Also scans sub-packages recursively
+If we want to scan the packages outside the package of main application, we need to add scanBasePackages inside @SpringBootApplication
+
+
+@SpringBootApplication(scanBasePackages={"com.luv2code.springcoredemo",
+
+        "com.luv2code.util",
+        "org.acme.cart",
+        "edu.cmu.srs"})
+public class SpringcoredemoApplication {
+}
+
+== Spring Injection Types
+
+Recommended by the spring.io development team
+
+    • Constructor Injection: required dependencies
+    • Setter Injection: optional dependencies
+
+Not recommended by the spring.io development team
+
+    • Field Injection
+
+
+Injection Types - Which one to use?
+Constructor Injection
+• Use this when you have required dependencies
+• Generally recommended by the spring.io development team as first choice
+Setter Injection
+• Use this when you have optional dependencies
+• If dependency is not provided, your app can provide reasonable default logic
+
+
+If there are multiple Beans of the same type then you will get this error and it will not start
+Parameter 0 of constructor in com.saha.amit.springBasic.controller.SpringController required a single bean, but 2 were found
+
+- cricketCoach: defined in file [C:\Amit\Work\intellij_workspace\shamit-microservice\main-service\target\classes\com\saha\amit\springBasic\component\CricketCoach.class]
+- footballCoach: defined in file [C:\Amit\Work\intellij_workspace\shamit-microservice\main-service\target\classes\com\saha\amit\springBasic\component\FootballCoach.class]
+
+What we can do is either
+
+- Make one bean as #*@Primary*#
+- Or add #*@Qualifier*#("footballCoach")  annotation in Constructor
+Example
+
+@Autowired
+
+public SpringController(@Qualifier("footballCoach")Coach coach){
+
+this.coach =coach;
+
+}
+
+Initialization
+
+• By default, when your application starts, all beans are initialized
+• @Component, etc …
+• Spring will create an instance of each and make them available
+
+Lazy Initialization
+
+• Instead of creating all beans up front, we can specify lazy initialization
+• A bean will only be initialized in the following cases:
+• It is needed for dependency injection
+• Or it is explicitly requested
+• Add the @Lazy annotation to a given class
+
+To configure other beans for lazy initialization
+
+• We would need to add @Lazy to each class
+• Turns into tedious work for a large number of classes
+spring.main.lazy-initialization=true   for Global configuration
+
+Lazy Initialization
+
+Advantages
+
+• Only create objects as needed
+• May help with faster startup time if you have large number of components
+
+Disadvantages
+
+• If you have web related components like @RestController, not created until requested
+• May not discover configuration issues until too late
+• Need to make sure you have enough memory for all beans once created
+
+== Spring Bean Scopes
+Scope Description
+
+- #*singleton*# Create a single shared instance of the bean. Default scope.
+- #*prototype*# Creates a new bean instance for each container request.
+- #*request*# Scoped to an HTTP web request. Only used for web apps.
+- #*session*# Scoped to an HTTP web session. Only used for web apps.
+- #*global*#-session Scoped to a global HTTP web session. Only used for web
+apps
+
+@Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+#*@Bean*# is same as #*@Configuration*# but for external libraries we don't have access to source code so we can't ad @Componentso we have to rely on @Bean
