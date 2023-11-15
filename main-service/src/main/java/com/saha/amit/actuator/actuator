@@ -1,0 +1,26 @@
+URL exposed by default by actuator --> http://localhost:8080/mainService/actuator/health
+When some connection like rabbit MQ is down its returns as {"status":"DOWN"}  even tough app is up
+
+For other URL have to explicitly allow health will be exposed by default, but if we are adding explicit endpoint then have to mention health also to access /health
+management.endpoints.web.exposure.include=info
+or
+management.endpoints.web.exposure.include=*  //for all
+management.info.env.enabled=true
+
+For excluding
+management.endpoints.web.exposure.exclude=info
+
+info will return anything mentioned in below format
+info.app.name= Hello
+info.app.description= Hello
+info.app.version= 1
+info.app.president=Amit
+
+Some other URLs
+http://localhost:8080/mainService/actuator/beans
+http://localhost:8080/mainService/actuator/mappings
+http://localhost:8080/mainService/actuator/auditevents
+http://localhost:8080/mainService/actuator/threaddump
+
+
+
