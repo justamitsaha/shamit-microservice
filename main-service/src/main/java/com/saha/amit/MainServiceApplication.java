@@ -26,10 +26,14 @@ public class MainServiceApplication {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return runner -> {
-            Faker faker = Faker.instance();
-            Students students = new Students(faker.name().firstName(), faker.name().lastName(), faker.name().firstName() + "@" + faker.name().lastName() + ".com");
-            logger.info("Students --> "+ students.toString());
-            studentDAO.saveStudent(students);
+//            Faker faker = Faker.instance();
+//            Students students = new Students(faker.name().firstName(), faker.name().lastName(), faker.name().firstName() + "@" + faker.name().lastName() + ".com");
+//            studentDAO.saveStudent(students);
+//            logger.info("Save Students --> "+ students.toString());
+//
+//            int num = faker.number().numberBetween(1,6);
+//            logger.info("Get Student with id "+ num +" --> "+studentDAO.findStudentById(num).toString());
+
         };
     }
 }
