@@ -7,14 +7,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer_accounts")
-public class CustomerAccounts {
+public class Accounts {
 
 
 
-    //@Column(name = "customer_number")
+    @Column(name = "customer_number")
     private String customerNumber;
     @Id
-    //@Column(name = "account_number")
+    @Column(name = "account_number")
     private String accountNumber;
     @Column(name="account_type")
     private String accountType;

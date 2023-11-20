@@ -1,39 +1,38 @@
 package com.saha.amit.jpaApp.dto;
 
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "student")
-public class Students {
-
+@Table(name="employee")
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
-    @Column(name = "first_name")
+
+    @Column(name="first_name")
     private String firstName;
-    @Column(name = "last_name")
+
+    @Column(name="last_name")
     private String lastName;
-    @Column(name = "email")   // not needed as column name and field name same
+
+    @Column(name="email")
     private String email;
 
-    public Students(String firstName, String lastName, String email) {
+
+    // define constructors
+    public Employee() {
+
+    }
+
+    public Employee(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
-    public Students() {
-    }
-
-    @Override
-    public String toString() {
-        return "Students{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+    // define getter/setter
 
     public int getId() {
         return id;
@@ -65,5 +64,16 @@ public class Students {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    // define toString
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

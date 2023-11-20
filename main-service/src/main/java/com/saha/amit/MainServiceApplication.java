@@ -1,11 +1,7 @@
 package com.saha.amit;
 
-import com.github.javafaker.Faker;
-import com.saha.amit.jpaApp.dao.StudentDAO;
-import com.saha.amit.jpaApp.dto.Students;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -30,6 +26,7 @@ public class MainServiceApplication {
 
     @Bean
     public Docket productApi() {
+        logger.info("http://localhost:8080/mainService/swagger-ui.html#/");
         return new Docket(DocumentationType.SPRING_WEB.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors.basePackage("com.saha.amit")).build();
     }

@@ -2,7 +2,7 @@ package com.saha.amit.jpaApp.controller;
 
 import com.github.javafaker.Faker;
 import com.saha.amit.jpaApp.dao.StudentDAO;
-import com.saha.amit.jpaApp.dto.Students;
+import com.saha.amit.jpaApp.dto.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class EntityManagerController {
 
         switch (operationId){
             case 1:
-                Students students = new Students(faker.name().firstName(),faker.name().lastName(), faker.howIMetYourMother().catchPhrase());
+                Student students = new Student(faker.name().firstName(),faker.name().lastName(), faker.howIMetYourMother().catchPhrase());
                 studentDAO.saveStudent(students);
                 log.info("Create operation id --> "+ operationId+ "Student --> "+ students.toString());
                 return ResponseEntity.status(HttpStatus.ACCEPTED).body(students);

@@ -1,6 +1,6 @@
 package com.saha.amit.jpaApp.dao;
 
-import com.saha.amit.jpaApp.dto.Students;
+import com.saha.amit.jpaApp.dto.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,47 +22,47 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Transactional
-    public void saveStudent(Students students) {
+    public void saveStudent(Student students) {
         entityManager.persist(students);
     }
 
     @Override
-    public Students findStudentById(int id) {
-        return entityManager.find(Students.class, id);
+    public Student findStudentById(int id) {
+        return entityManager.find(Student.class, id);
     }
 
     @Override
-    public List<Students> getAllStudents() {
-        TypedQuery<Students> theQuery = entityManager.createQuery("FROM Students ORDER BY lastName DESC", Students.class);
-        List<Students> students = theQuery.getResultList();
+    public List<Student> getAllStudents() {
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Students ORDER BY lastName DESC", Student.class);
+        List<Student> students = theQuery.getResultList();
         return students;
     }
 
     @Override
-    public List<Students> getStudentByLastName(String lastName) {
+    public List<Student> getStudentByLastName(String lastName) {
         //TypedQuery<Students> theQuery = entityManager.createQuery("FROM Students WHERE lastName = 'Gerhold'", Students.class);
-        TypedQuery<Students> theQuery = entityManager.createQuery("FROM Students WHERE lastName=" + lastName, Students.class);
-        List<Students> students = theQuery.getResultList();
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Students WHERE lastName=" + lastName, Student.class);
+        List<Student> students = theQuery.getResultList();
         return students;
     }
 
     @Override
-    public List<Students> getStudentByLastAndFirstName(String firstName, String lastname) {
-        TypedQuery<Students> theQuery = entityManager.createQuery(
-                "FROM Students WHERE lastName=:lName OR firstName=:fName", Students.class);
+    public List<Student> getStudentByLastAndFirstName(String firstName, String lastname) {
+        TypedQuery<Student> theQuery = entityManager.createQuery(
+                "FROM Students WHERE lastName=:lName OR firstName=:fName", Student.class);
         theQuery.setParameter("lName", lastname);
         theQuery.setParameter("fName", firstName);
-        List<Students> students = theQuery.getResultList();
+        List<Student> students = theQuery.getResultList();
         return students;
     }
 
     @Override
-    public List<Students> getStudentWithLikeOperator(String queryParam) {
+    public List<Student> getStudentWithLikeOperator(String queryParam) {
         //TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student WHERE email LIKE ‘%luv2code.com'", Student.class);
-        TypedQuery<Students> theQuery = entityManager.createQuery(
-                "FROM Students WHERE email LIKE :param", Students.class);
+        TypedQuery<Student> theQuery = entityManager.createQuery(
+                "FROM Students WHERE email LIKE :param", Student.class);
         theQuery.setParameter("param", queryParam);
-        List<Students> students = theQuery.getResultList();
+        List<Student> students = theQuery.getResultList();
         return students;
     }
 
@@ -79,7 +79,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Transactional
     public void deleteStudent() {
         int id = 8;
-        Students theStudent = entityManager.find(Students.class, id);
+        Student theStudent = entityManager.find(Student.class, id);
         //delete all
         //int numRowsDeleted = entityManager.createQuery("DELETE FROM Student").executeUpdate()
         if (theStudent != null)
