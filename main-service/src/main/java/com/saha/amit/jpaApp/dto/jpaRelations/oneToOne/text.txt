@@ -1,0 +1,72 @@
+Instructor has a column "instructor_detail_id" which is foreign key and references "id" field in InstructorDetail.
+So instead of mentioning the field instructor_detail_id below is added
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "instructor_detail_id")
+    private InstructorDetail instructorDetail;
+
+This will allow to return InstructorDetail with Instructor like below
+
+{
+"id": 7,
+"firstName": "Derrick",
+"lastName": "Fay",
+"email": "Derrick@Fay.com",
+"instructorDetail": {
+"id": 7,
+"youtubeChannel": "Mel Loewe",
+"hobby": "Patent Pending"
+}
+}
+
+Now for reverse side mapping we need to add below in InstructorDetail
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
+But this will create cyclic dependency and query will execute in loop. In order to reverse that we need to add
+@JsonManagedReference in Instructor field in InstructorDetail  and @JsonBackReference on InstructorDetail field in Instructor
+
+public class Instructor {
+    ..
+    ..
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "instructor_detail_id")
+    @JsonBackReference
+    private InstructorDetail instructorDetail;
+    }
+
+public class InstructorDetail {
+
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Instructor instructor;
+    }
+This will give below Instructor wrapped in InstructorDetail
+
+{
+"id": 7,
+"youtubeChannel": "Mel Loewe",
+"hobby": "Patent Pending",
+"instructor": {
+"id": 7,
+"firstName": "Derrick",
+"lastName": "Fay",
+"email": "Derrick@Fay.com"
+}
+}
+
+But now 1st one will break the first one so if we want to go back to 1st one we have to reverse @JsonManagedReference and @JsonManagedReference placement
+
+Basically parent node will have @JsonManagedReference  and child will have @JsonBackReference
+
+Cascade type - If we want to Delete InstructorDetail  and keep Instructor  then in InstructorDetail modify as below
+    @OneToOne(cascade = {
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH,
+            //CascadeType.REMOVE,
+            CascadeType.DETACH,
+    }
+    )
+    @JsonBackReference
+    private Instructor instructor;
+
