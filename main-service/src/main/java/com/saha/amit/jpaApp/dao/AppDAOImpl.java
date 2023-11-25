@@ -1,5 +1,6 @@
 package com.saha.amit.jpaApp.dao;
 
+import com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Course;
 import com.saha.amit.jpaApp.dto.jpaRelations.oneToOne.Instructor;
 import com.saha.amit.jpaApp.dto.jpaRelations.oneToOne.InstructorDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,23 @@ public class AppDAOImpl implements AppDAO{
         entityManager.remove(tempInstructorDetail);
         return tempInstructorDetail;
     }
+
+    @Transactional
+    public void saveInstructorOneToMany(com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor instructor) {
+        entityManager.persist(instructor);
+    }
+
+    public com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor findInstructorByIdLazy(Integer id) {
+        return entityManager.find(com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor.class, id);
+    }
+
+    public List<Course> findCoursesByInstructorId(int theId) {
+        TypedQuery<Course> query = entityManager.createQuery(
+                "from Course where instructor.id = :data", Course.class);
+        query.setParameter("data", theId);
+        List<Course> courses = query.getResultList();
+        return courses;
+    }
+
 
 }
