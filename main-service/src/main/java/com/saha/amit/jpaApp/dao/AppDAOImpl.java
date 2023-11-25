@@ -70,5 +70,15 @@ public class AppDAOImpl implements AppDAO{
         return courses;
     }
 
-
+    @Override
+    public com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor findInstructorByIdJoinFetch(int theId) {
+        TypedQuery<com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor> query = entityManager.createQuery(
+                "select i from Instructor i "
+                        + "JOIN FETCH i.courses "
+                        + "JOIN FETCH i.instructorDetail "
+                        + "where i.id = :data", com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor.class);
+        query.setParameter("data", theId);
+        com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor instructor = query.getSingleResult();
+        return instructor;
+    }
 }

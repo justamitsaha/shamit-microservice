@@ -18,4 +18,5 @@ public interface AppDAO {
     public void saveInstructorOneToMany(com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor instructorDetail);
     public com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor findInstructorByIdLazy(Integer id);
     List<Course> findCoursesByInstructorId(int theId);
+    com.saha.amit.jpaApp.dto.jpaRelations.oneToMany.Instructor findInstructorByIdJoinFetch(int theId);
 }

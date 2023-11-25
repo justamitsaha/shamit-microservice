@@ -131,14 +131,19 @@ public class EntityManagerController {
                 jpaResponse.setObject(ins);
                 return ResponseEntity.status(HttpStatus.CREATED).body(jpaResponse);
             case (3):
-                //http://localhost:8080/mainService/entityManager/jpaRelations/oneToMany?operationId=2&id=5
-                ins = appDAO.findInstructorByIdLazy(id);
+                //http://localhost:8080/mainService/entityManager/jpaRelations/oneToMany?operationId=3&id=5
+                    ins = appDAO.findInstructorByIdLazy(id);
                 //log.info("Instructor: " +ins.getInstructorDetail().toString());
                 log.info("the associated courses: " +ins.getCourses().toString());
                 List<Course> courses1 = appDAO.findCoursesByInstructorId(id);
                 ins.setCourses(courses1);
                 jpaResponse.setMsg("Found below Object");
                 jpaResponse.setObject(ins);
+                return ResponseEntity.status(HttpStatus.CREATED).body(jpaResponse);
+            case (4):
+                //http://localhost:8080/mainService/entityManager/jpaRelations/oneToMany?operationId=4&id=1
+                jpaResponse.setMsg("Found below Object");
+                jpaResponse.setObject(appDAO.findInstructorByIdJoinFetch(id));
                 return ResponseEntity.status(HttpStatus.CREATED).body(jpaResponse);
         }
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
