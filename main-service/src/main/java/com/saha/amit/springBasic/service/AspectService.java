@@ -26,8 +26,9 @@ public class AspectService {
         log.info("Aspects in order");
     }
 
-    public void methodArgumentsWithJoinPoint(String str, int i, Giraffe giraffe){
+    public Giraffe methodArgumentsWithJoinPoint(String str, int i, Giraffe giraffe){
         log.info("Reading method with params");
+        return new Giraffe("Python", 2,4,1,"Small");
     }
 
     

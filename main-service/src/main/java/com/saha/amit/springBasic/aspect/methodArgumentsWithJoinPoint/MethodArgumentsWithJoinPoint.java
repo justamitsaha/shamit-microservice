@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class MethodArgumentsWithJoinPoint {
     Logger log = LoggerFactory.getLogger(MethodArgumentsWithJoinPoint.class);
 
-    @Before("execution(void methodArgumentsWithJoinPoint(..))")
+    @Before("execution(* methodArgumentsWithJoinPoint(..))")
     public void methodArgumentsWithJoinPoint(JoinPoint theJoinPoint) throws JsonProcessingException {
 
         MethodSignature methodSignature = (MethodSignature) theJoinPoint.getSignature();
