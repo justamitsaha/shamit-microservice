@@ -1,4 +1,4 @@
-package com.saha.amit.springBasic.aspect.after;
+package com.saha.amit.springBasic.aspect;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
