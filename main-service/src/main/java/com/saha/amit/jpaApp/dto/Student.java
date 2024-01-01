@@ -1,6 +1,6 @@
 package com.saha.amit.jpaApp.dto;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "student")

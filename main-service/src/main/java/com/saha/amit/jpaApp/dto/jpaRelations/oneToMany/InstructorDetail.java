@@ -2,7 +2,7 @@ package com.saha.amit.jpaApp.dto.jpaRelations.oneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="instructor_detail")
