@@ -18,6 +18,7 @@ public class MainServiceApplication {
     Logger logger = LoggerFactory.getLogger(MainServiceApplication.class);
 
     public static void main(String[] args) {
+        System.out.println("Swagger URL http://localhost:8080/mainService/swagger-ui/index.html#/");
         SpringApplication.run(MainServiceApplication.class, args);
     }
 
